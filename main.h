@@ -15,4 +15,8 @@ void rev_string(char *s);
 char *_strtok(char *str, char *delim);
 int _isdigit(char *s);
 int strcmp_to_delim(char *str, char *delim);
+
+/* memory functions */
+void _memcpy(void *dest, void *src, unsigned int size);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 #endif
