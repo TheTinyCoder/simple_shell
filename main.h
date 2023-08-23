@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <stdio.h>
+#include <sys/types.h>
 #define BUFSIZE 1024
 #define TOKEN_BUFSIZE 128
 #define TOKEN_DELIMITERS " \t\r\n\a"
@@ -146,7 +147,18 @@ char *cd_error(data_t *data);
 char *exit_error(data_t *data);
 char *error_404(data_t *data);
 char *strcat_cd_error(data_t *data, char *msg, char *error, char *lines);
+int get_error(data_t *data, int error_val);
 
+
+/* execute */
+int is_executable(data_t *data);
+int execute(data_t *data);
+
+
+/* handle path */
+char *_which(char *command, char **_environ);
+int is_current_dir(char *path, int *i);
+int check_permissions(char *directory, data_t *data);
 
 /* handle exit */
 int _exitsh(data_t *data);
