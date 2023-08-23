@@ -88,6 +88,10 @@ int strcmp_to_delim(char *str, char *delim);
 void _memcpy(void *dest, void *src, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
+/* separator functions */
+sep_list *add_sep_nodeend(sep_list **head, char separator);
+void free_sep_list(sep_list **head);
+
 /* variable functions */
 var_list *add_var_node(var_list **head, int varLen, char *value, int valueLen);
 void free_var_list(var_list **head);
