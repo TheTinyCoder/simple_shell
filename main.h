@@ -104,7 +104,7 @@ int _strlen(char *s);
 int _strspn(char *s, char *accept);
 char *_strdup(char *s);
 void rev_string(char *s);
-char *_strtok(char *str, char *delim);
+char *_itoa(int n);
 int _isdigit(char *s);
 int strcmp_to_delim(char *str, char *delim);
 
@@ -134,12 +134,18 @@ void free_var_list(var_list **head);
 
 
 /* handle exit */
-int _exit(data_t *data);
+int _exitsh(data_t *data);
 
 
 /* handle env */
 int _env(data_t *data);
 char *get_env(const char *env_name, char **_environ);
+
+
+/* handle lib functions */
+char *_strtok(char *str, char *delim);
+int _getlen(int n);
+int _atoi(char *s);
 
 
 /* handle setenv unsetenv */
