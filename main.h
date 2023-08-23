@@ -5,8 +5,8 @@
 
 
 /**
- * struct data - contains all relevant shell data on runtime
- * 
+ * struct shell_data - contains all relevant shell data on runtime
+ *
  * @argv: argument vector
  * @user_input: command line user input
  * @tokens: command line tokens
@@ -25,18 +25,17 @@ typedef struct shell_data
 	int counter;
 	char **_environ;
 	char *pid;
-} shell_data_t;
+} data_t;
 
 
 /**
- * var_listPtr - Typedef for var_list node
+ * var_listPtr - Typedef for struct varList
  */
-
-typedef struct var_list *var_listPtr;
+typedef struct varList *var_listPtr;
 
 /**
- * struct var_list - single linked list
- * 
+ * struct varList - single linked list
+ *
  * @var_len: length of the variable
  * @value: variable value
  * @value_len: length of the value
@@ -44,13 +43,13 @@ typedef struct var_list *var_listPtr;
  * Description: single linked list to store variables
  */
 
-typedef struct var_list
+typedef struct varList
 {
 	int var_len;
 	char *value;
 	int value_len;
 	var_listPtr next;
-} var_list_t;
+} var_list;
 
 
 /*  string functions  */
@@ -73,13 +72,16 @@ int strcmp_to_delim(char *str, char *delim);
 void _memcpy(void *dest, void *src, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
+/* variable functions */
+var_list *add_var_node(var_list **head, int varLen, char *value, int valueLen);
+void free_var_list(var_list **head);
 
 /* switches non logical '|' and '&' for non-printed characters */
 char *swap_non_ops(char *s, int type);
 
 /* handle variable replacements */
-int check_for_variables(var_list_t **head, char *s, char *status, shell_data_t *data);
-void check_environ(var_list_t **head, char *s, shell_data_t *data);
+int check_for_vars(var_list **head, char *s, char *status, data_t *data);
+void check_for_env(var_list **head, char *s, data_t *data);
 
 /* handle comments */
 char *handle_comment(char *s);
