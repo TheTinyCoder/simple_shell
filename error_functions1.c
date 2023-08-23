@@ -80,6 +80,61 @@ char *path_error(data_t *data)
 
 
 /**
+ * syntax_error - function entry-point
+ *
+ * Description: finds syntax errors
+ * @s: string
+ * @idx: index
+ * @last: last char read
+ * Return: index of error, or 0
+ */
+
+int syntax_error(char *s, int idx, char last)
+{
+	int count;
+
+	if (*s == '\0')
+		return (0);
+
+	if (*s == ' ' || *s == '\t')
+		return (syntax_error(s + 1, idx + 1, last));
+
+	if (*s == ';')
+		if (last == '|' || last == '&' || last == ';')
+			return (idx);
+
+	if (*s == '|')
+	{
+		if (last == ';' || last == '&')
+			return (idx);
+
+		if (last == '|')
+		{
+			count = char_repetitions(s, 0);
+			if (count == 0 || count > 1)
+				return (idx);
+		}
+	}
+
+	if (*s == '&')
+	{
+		if (last == ';' || last == '|')
+			return (idx);
+
+		if (last == '&')
+		{
+			count = char_repetitions(s, 0);
+			if (count == 0 || count > 1)
+				return (idx);
+		}
+	}
+
+	return (syntax_error(s + 1, idx + 1, *s));
+
+}
+
+
+/**
  * get_error - function entry-point
  *
  * Description: calls the error
@@ -87,6 +142,7 @@ char *path_error(data_t *data)
  * @error_val: error value
  * Return: error
  */
+
 int get_error(data_t *data, int error_val)
 {
 	char *error;
