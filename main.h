@@ -109,6 +109,9 @@ typedef struct builtin
 	int (*f)(data_t *data);
 } builtin_t;
 
+/* get_builtin function */
+int (*get_builtin(char *command))(data_t *data);
+
 
 /* data functions */
 void set_data(data_t *data, char **argv);
