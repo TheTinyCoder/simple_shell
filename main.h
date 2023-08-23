@@ -109,6 +109,7 @@ typedef struct builtin
 	int (*f)(data_t *data);
 } builtin_t;
 
+
 /* get_builtin function */
 int (*get_builtin(char *command))(data_t *data);
 
@@ -141,6 +142,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int cmpenv(const char *env_name, const char *name);
 char *cpyinfo(char *name, char *value);
 
+
 /* line functions */
 line_list *add_line_nodeend(line_list **head, char *line_string);
 void free_line_list(line_list **head);
@@ -169,6 +171,18 @@ char *strcat_cd_error(data_t *data, char *msg, char *error, char *lines);
 int get_error(data_t *data, int error_val);
 
 
+/* help functions */
+void help_env(void);
+void help_setenv(void);
+void help_unsetenv(void);
+void help_general(void);
+void help_exit(void);
+void help(void);
+void help_alias(void);
+void help_cd(void);
+int get_help(data_t *data);
+
+
 /* execute */
 int is_executable(data_t *data);
 int execute(data_t *data);
@@ -185,6 +199,7 @@ int check_syntax(data_t *data, char *s);
 char *_which(char *command, char **_environ);
 int is_current_dir(char *path, int *i);
 int check_permissions(char *directory, data_t *data);
+
 
 /* handle exit */
 int _exitsh(data_t *data);
