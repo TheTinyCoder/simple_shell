@@ -17,13 +17,13 @@ typedef struct lineList *line_listPtr;
 /**
  * struct lineList - single linked list
  *
- * @line: string
+ * @line_string: string
  * @next: next node of linked list
  * Description: single linked list that stores command lines (strings)
  */
 typedef struct lineList
 {
-	char *line;
+	char *line_string;
 	line_listPtr next;
 } line_list;
 
@@ -114,8 +114,12 @@ void _memcpy(void *dest, void *src, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 
+/* env functions */
+int cmpenv(const char *env_name, const char *name);
+char *cpyinfo(char *name, char *value);
+
 /* line functions */
-line_list *add_line_nodeend(line_list **head, char *line);
+line_list *add_line_nodeend(line_list **head, char *line_string);
 void free_line_list(line_list **head);
 
 
@@ -129,11 +133,24 @@ var_list *add_var_node(var_list **head, int varLen, char *value, int valueLen);
 void free_var_list(var_list **head);
 
 
+/* handle setenv unsetenv */
+
+
+
+/* handle cd (change directory operations) */
+void cd_parent(data_t *data);
+void cd_dir(data_t *data);
+void cd_back(data_t *data);
+void cd_home(data_t *data);
+int cd_current(data_t *data);
+
+
 /* handle separators */
 void add_nodes(sep_list **head_sep, line_list **head_line, char *s);
-void next_line(sep_list **list_sep, line_list **list_line, data_t *data);
+void next_line(sep_list **node_sep, line_list **node_line, data_t *data);
 int split_command_lines(data_t *data, char *s);
 char **tokenize_line(char *s);
+int exec_line(data_t *data);
 
 
 /* switches non logical '|' and '&' for non-printed characters */
