@@ -1,6 +1,7 @@
 #include "main.h"
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * _line - function entry-point
@@ -106,7 +107,7 @@ char *_readline(int *i)
 	char *input = NULL;
 	size_t buf_size = 0;
 
-	*i = _getline(&input, &buf_size, stdin);
+	*i = getline(&input, &buf_size, stdin);
 
 	return (input);
 }

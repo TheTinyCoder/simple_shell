@@ -65,11 +65,14 @@ int _isdigit(char *s)
 
 
 /**
- * strcmp_to_delim - compare characters of string to delimeter
+ * strcmp_to_delim - function entry-point
+ *
+ * Description: compare characters of string to delimeter
  * @str: string.
  * @delim: delimiter.
  * Return: 1 if are equals, 0 if not.
  */
+
 int strcmp_to_delim(char *str, char *delim)
 {
 	int i, j, k;

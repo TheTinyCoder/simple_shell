@@ -111,7 +111,7 @@ int split_command_lines(data_t *data, char *s)
 	{
 		data->user_input = node_line->line_string;
 		data->tokens = tokenize_line(data->user_input);
-		loop = exec_line(data);
+		loop = execute_line(data);
 		free(data->tokens);
 
 		if (loop == 0)
@@ -163,7 +163,7 @@ char **tokenize_line(char *s)
 		if (i == size)
 		{
 			size += TOKEN_BUFSIZE;
-			tokens = (char **)_realloc(tokens, i, sizeof(char *) * size);
+			tokens = _reallocdp(tokens, i, sizeof(char *) * size);
 			if (tokens == NULL)
 			{
 				write(STDERR_FILENO, ": allocation error\n", 18);
@@ -179,13 +179,13 @@ char **tokenize_line(char *s)
 
 
 /**
- * exec_line - function entry-point
+ * execute_line - function entry-point
  *
  * Description: finds builtins and executes line commands
  * @data: shell data
  * Return: 1 on success.
  */
-int exec_line(data_t *data)
+int execute_line(data_t *data)
 {
 	int (*builtin)(data_t *data);
 

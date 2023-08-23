@@ -54,31 +54,34 @@ char *_strtok(char *str, char *delim)
 
 
 /**
- * _getlen - Get the lenght of a number.
- * @n: type int number.
- * Return: Lenght of a number.
+ * _getlen - function entry-point
+ *
+ * Description; gets the length of a number.
+ * @n: integer
+ * Return: length of a n
  */
+
 int _getlen(int n)
 {
-	unsigned int n1;
-	int lenght = 1;
+	unsigned int p;
+	int len = 1;
 
 	if (n < 0)
 	{
-		lenght++;
-		n1 = n * -1;
+		len++;
+		p = n * -1;
 	}
 	else
 	{
-		n1 = n;
+		p = n;
 	}
-	while (n1 > 9)
+	while (p > 9)
 	{
-		lenght++;
-		n1 = n1 / 10;
+		len++;
+		p = p / 10;
 	}
 
-	return (lenght);
+	return (len);
 }
 
 

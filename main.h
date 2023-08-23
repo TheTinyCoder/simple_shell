@@ -136,6 +136,8 @@ int strcmp_to_delim(char *str, char *delim);
 /* memory functions */
 void _memcpy(void *dest, void *src, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char **_reallocdp(char **old, unsigned int old_size, unsigned int new_size);
+
 
 
 /* env functions */
@@ -241,7 +243,7 @@ void add_nodes(sep_list **head_sep, line_list **head_line, char *s);
 void next_line(sep_list **node_sep, line_list **node_line, data_t *data);
 int split_command_lines(data_t *data, char *s);
 char **tokenize_line(char *s);
-int exec_line(data_t *data);
+int execute_line(data_t *data);
 
 
 /* switches non logical '|' and '&' for non-printed characters */

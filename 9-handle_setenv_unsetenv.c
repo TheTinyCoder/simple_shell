@@ -30,8 +30,7 @@ void _setenv(char *env_name, char *env_value, data_t *data)
 		free(env);
 	}
 
-	data->_environ =
-		(char **)_realloc(data->_environ, i, sizeof(char *) * (i + 2));
+	data->_environ = _reallocdp(data->_environ, i, sizeof(char *) * (i + 2));
 	data->_environ[i] = cpyinfo(env_name, env_value);
 	data->_environ[i + 1] = NULL;
 }
