@@ -1,54 +1,44 @@
 #include "main.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * _strtok - function entry-point
+ * _itoa - function entry-point
  *
- * Description: splits a string by delimiter.
- * @str: string.
- * @delim: delimiter.
- * Return: split string.
+ * Description: converts int to string.
+ * @n: type int number
+ * Return: string
  */
-char *_strtok(char *str, char *delim)
+char *_itoa(int n)
 {
-	char *start;
-	unsigned int i, bool;
-	static char *split_string, *end;
+	unsigned int p;
+	int len = _getlen(n);
+	char *buffer;
 
-
-	if (str != NULL)
-	{
-		if (strcmp_to_delim(str, delim))
-			return (NULL);
-		split_string = str;
-		i = _strlen(str);
-		end = &str[i];
-	}
-	start = split_string;
-	if (start == end)
+	buffer = malloc(sizeof(char) * (len + 1));
+	if (buffer == 0)
 		return (NULL);
 
-	for (bool = 0; *split_string; split_string++)
+	*(buffer + len) = '\0';
+
+	if (n < 0)
 	{
-		if (split_string != start)
-			if (*split_string && *(split_string - 1) == '\0')
-				break;
-		for (i = 0; delim[i]; i++)
-		{
-			if (*split_string == delim[i])
-			{
-				*split_string = '\0';
-				if (split_string == start)
-					start++;
-				break;
-			}
-		}
-		if (bool == 0 && *split_string)
-			bool = 1;
+		p = n * -1;
+		buffer[0] = '-';
 	}
-	if (bool == 0)
-		return (NULL);
-	return (start);
+	else
+	{
+		p = n;
+	}
+
+	len--;
+	do {
+		*(buffer + len) = (p % 10) + '0';
+		p = p / 10;
+		len--;
+	}
+	while (p > 0)
+		;
+	return (buffer);
 }
 
 
