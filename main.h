@@ -133,8 +133,15 @@ var_list *add_var_node(var_list **head, int varLen, char *value, int valueLen);
 void free_var_list(var_list **head);
 
 
-/* handle setenv unsetenv */
+/* handle env */
+int _env(data_t *data);
+char *get_env(const char *env_name, char **_environ);
 
+
+/* handle setenv unsetenv */
+void _setenv(char *name, char *value, data_t *data);
+int cmp_setenv(data_t *data);
+int _unsetenv(data_t *data);
 
 
 /* handle cd (change directory operations) */
