@@ -1,7 +1,23 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+/**
+ * sep_listPtr - Typedef for struct sepList
+ */
+typedef struct sepList *sep_listPtr;
 
+
+/**
+ * struct sepList - single linked list
+ * @separator: can be ';', '|' or '&'
+ * @next: next node of list
+ * Description: single linked list that stores separators
+ */
+typedef struct sepList
+{
+	char separator;
+	sep_listPtr next;
+} sep_list;
 
 
 /**
@@ -39,8 +55,8 @@ typedef struct varList *var_listPtr;
  * @var_len: length of the variable
  * @value: variable value
  * @value_len: length of the value
- * @next: next node
- * Description: single linked list to store variables
+ * @next: next node of list
+ * Description: single linked list that stores variables
  */
 
 typedef struct varList
