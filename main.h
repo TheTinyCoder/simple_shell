@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
 #define BUFSIZE 1024
 #define TOKEN_BUFSIZE 128
 #define TOKEN_DELIMITERS " \t\r\n\a"
@@ -138,6 +139,15 @@ var_list *add_var_node(var_list **head, int varLen, char *value, int valueLen);
 void free_var_list(var_list **head);
 
 
+/* error functions */
+char *env_error(data_t *data);
+char *path_error(data_t *data);
+char *cd_error(data_t *data);
+char *exit_error(data_t *data);
+char *error_404(data_t *data);
+char *strcat_cd_error(data_t *data, char *msg, char *error, char *lines);
+
+
 /* handle exit */
 int _exitsh(data_t *data);
 
@@ -145,6 +155,12 @@ int _exitsh(data_t *data);
 /* handle env */
 int _env(data_t *data);
 char *get_env(const char *env_name, char **_environ);
+
+
+/* get line */
+void _line(char **line, size_t *line_size, char *buffer, size_t buf_size);
+ssize_t _getline(char **line, size_t *line_size, FILE *stream);
+char *_readline(int *i);
 
 
 /* handle lib functions */
