@@ -107,7 +107,7 @@ char *_readline(int *i)
 	char *input = NULL;
 	size_t buf_size = 0;
 
-	*i = getline(&input, &buf_size, stdin);
+	*i = _getline(&input, &buf_size, stdin);
 
 	return (input);
 }
