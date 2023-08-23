@@ -123,14 +123,14 @@ char *replace(var_list **head, char *s, char *new, int len)
 
 
 /**
- * replaced_var - function entry-point
+ * replace_var - function entry-point
  *
  * Description: calls functions to replace string into var
  * @s: string
  * @data: shell data structure
  * Return: replaced string
  */
-char *replaced_var(char *s, data_t *data)
+char *replace_var(char *s, data_t *data)
 {
 	var_listPtr head, idx;
 	char *status, *new;

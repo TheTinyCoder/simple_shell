@@ -95,13 +95,13 @@ ssize_t _getline(char **line, size_t *line_size, FILE *stream)
 
 
 /**
- * read_line - function entry-point
+ * _readline - function entry-point
  *
  * Description: reads input
  * @i: return value of getline()
  * Return: string
  */
-char *read_line(int *i)
+char *_readline(int *i)
 {
 	char *input = NULL;
 	size_t buf_size = 0;
