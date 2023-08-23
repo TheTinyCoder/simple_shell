@@ -95,6 +95,11 @@ typedef struct varList
 } var_list;
 
 
+/* data functions */
+void set_data(data_t *data, char **argv);
+void free_data(data_t *data);
+
+
 /*  string functions  */
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
