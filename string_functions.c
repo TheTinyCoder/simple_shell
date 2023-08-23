@@ -94,23 +94,21 @@ char *_strchr(char *s, char c)
  * Description: 'compares two strings'
  * @s1: string
  * @s2: string
- * Return: integer
+ * Return: 0
  */
 
 int _strcmp(char *s1, char *s2)
 {
-	int i, j = 0;
+	int i;
 
-	for (i = 0; s1[i] != '\0'; i++)
-	{
-		if (s1[i] != s2[i])
-		{
-			j = s1[i] - s2[i];
-			break;
-		}
-	}
+	for (i = 0; s1[i] == s2[i] && s1[i]; i++)
+		;
 
-	return (j);
+	if (s1[i] > s2[i])
+		return (1);
+	if (s1[i] < s2[i])
+		return (-1);
+	return (0);
 }
 
 
