@@ -6,10 +6,10 @@
  *
  * Description: adds a command line string at end of line_list linked list
  * @head: double pointer to head of the linked list
- * @line: command line string
+ * @line_string: command line string
  * Return: head of linked list
  */
-line_list *add_line_nodeend(line_list **head, char *line)
+line_list *add_line_nodeend(line_list **head, char *line_string)
 {
 	line_listPtr new, temp;
 
@@ -17,7 +17,7 @@ line_list *add_line_nodeend(line_list **head, char *line)
 	if (new == NULL)
 		return (NULL);
 
-	new->line = line;
+	new->line_string = line_string;
 	new->next = NULL;
 	temp = (*head);
 
