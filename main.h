@@ -28,6 +28,31 @@ typedef struct shell_data
 } shell_data_t;
 
 
+/**
+ * var_listPtr - Typedef for var_list node
+ */
+
+typedef struct var_list *var_listPtr;
+
+/**
+ * struct var_list - single linked list
+ * 
+ * @var_len: length of the variable
+ * @value: variable value
+ * @value_len: length of the value
+ * @next: next node
+ * Description: single linked list to store variables
+ */
+
+typedef struct var_list
+{
+	int var_len;
+	char *value;
+	int value_len;
+	var_listPtr next;
+} var_list_t;
+
+
 /*  string functions  */
 
 char *_strcat(char *dest, char *src);
@@ -51,6 +76,10 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 /* switches non logical '|' and '&' for non-printed characters */
 char *swap_non_ops(char *s, int type);
+
+/* handle variable replacements */
+int check_for_variables(var_list_t **head, char *s, char *status, shell_data_t *data);
+void check_environ(var_list_t **head, char *s, shell_data_t *data);
 
 /* handle comments */
 char *handle_comment(char *s);
