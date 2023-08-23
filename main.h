@@ -97,6 +97,19 @@ typedef struct varList
 } var_list;
 
 
+/**
+ * struct builtin - struct for command arguments.
+ *
+ * @name: name of the command builtin i.e cd, exit, env
+ * @f: pointer to function.
+ */
+typedef struct builtin
+{
+	char *name;
+	int (*f)(data_t *data);
+} builtin_t;
+
+
 /* data functions */
 void set_data(data_t *data, char **argv);
 void free_data(data_t *data);
