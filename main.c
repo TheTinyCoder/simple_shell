@@ -7,11 +7,11 @@
  * get_sigint - function entry-point
  *
  * Description: handle 'crtl + c' call in prompt
- * @signal: Signal handler
+ * @sign: Signal handler
  */
-void get_sigint(int signal)
+void get_sigint(int sign)
 {
-	(void)signal;
+	(void)sign;
 	write(STDOUT_FILENO, "\n^-^ ", 5);
 }
 

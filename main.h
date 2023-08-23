@@ -110,8 +110,11 @@ typedef struct builtin
 } builtin_t;
 
 
-/* get_builtin function */
+/* main functions */
+void get_sigint(int sign);
 int (*get_builtin(char *command))(data_t *data);
+void loop_shell_prompt(data_t *data);
+
 
 
 /* data functions */
