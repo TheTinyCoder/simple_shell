@@ -197,5 +197,5 @@ int exec_line(data_t *data)
 	if (builtin != NULL)
 		return (builtin(data));
 
-	return (cmd_exec(data));
+	return (execute(data));
 }

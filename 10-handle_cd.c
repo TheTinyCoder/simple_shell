@@ -15,7 +15,7 @@ void cd_parent(data_t *data)
 	char pwd[PATH_MAX];
 	char *directory, *dp_pwd, *strtok_pwd;
 
-	get_current_dir(pwd, sizeof(pwd));
+	getcwd(pwd, sizeof(pwd));
 	dp_pwd = _strdup(pwd);
 	_setenv("OLDPWD", dp_pwd, data);
 	directory = data->tokens[1];
@@ -43,12 +43,12 @@ void cd_parent(data_t *data)
 	if (strtok_pwd != NULL)
 	{
 		chdir(strtok_pwd);
-		set_env("PWD", strtok_pwd, data);
+		_setenv("PWD", strtok_pwd, data);
 	}
 	else
 	{
 		chdir("/");
-		set_env("PWD", "/", data);
+		_setenv("PWD", "/", data);
 	}
 	data->status = 0;
 	free(dp_pwd);
