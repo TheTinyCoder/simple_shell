@@ -1,5 +1,33 @@
 #ifndef MAIN_H
 #define MAIN_H
+
+
+
+
+/**
+ * struct data - contains all relevant shell data on runtime
+ * 
+ * @argv: argument vector
+ * @user_input: command line user input
+ * @tokens: command line tokens
+ * @status: last status of the shell
+ * @counter: counts lines
+ * @_environ: environment variable
+ * @pid: current process ID of the shell
+ */
+
+typedef struct shell_data
+{
+	char **argv;
+	char *user_input;
+	char **tokens;
+	int status;
+	int counter;
+	char **_environ;
+	char *pid;
+} shell_data_t;
+
+
 /*  string functions  */
 
 char *_strcat(char *dest, char *src);
