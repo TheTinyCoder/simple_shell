@@ -138,6 +138,9 @@ void free_sep_list(sep_list **head);
 /* variable functions */
 var_list *add_var_node(var_list **head, int varLen, char *value, int valueLen);
 void free_var_list(var_list **head);
+void env_var(var_list **head, char *s, data_t *data);
+char *replaced(var_list **head, char *s, char *new_s, int len);
+char *replace_var(char *s, data_t *data);
 
 
 /* error functions */
