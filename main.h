@@ -114,6 +114,11 @@ void _memcpy(void *dest, void *src, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 
+/* line functions */
+line_list *add_line_nodeend(line_list **head, char *line);
+void free_line_list(line_list **head);
+
+
 /* separator functions */
 sep_list *add_sep_nodeend(sep_list **head, char separator);
 void free_sep_list(sep_list **head);
@@ -122,6 +127,13 @@ void free_sep_list(sep_list **head);
 /* variable functions */
 var_list *add_var_node(var_list **head, int varLen, char *value, int valueLen);
 void free_var_list(var_list **head);
+
+
+/* handle separators */
+void add_nodes(sep_list **head_sep, line_list **head_line, char *s);
+void next_line(sep_list **list_sep, line_list **list_line, data_t *data);
+int split_command_lines(data_t *data, char *s);
+char **tokenize_line(char *s);
 
 
 /* switches non logical '|' and '&' for non-printed characters */
