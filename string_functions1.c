@@ -9,7 +9,7 @@
  * Return: int
  */
 
-int _strlen(char *s)
+int _strlen(const char *s)
 {
 	int x = 0;
 
@@ -31,26 +31,23 @@ int _strlen(char *s)
 
 int _strspn(char *s, char *accept)
 {
-	unsigned int i, j, k, l = 0, m = 0;
+	int i, j, bool;
 
-	for (k = 0; accept[k] != '\0'; k++)
-		;
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; *(s + i) != '\0'; i++)
 	{
-		for (j = 0;; j++)
+		bool = 1;
+		for (j = 0; *(accept + j) != '\0'; j++)
 		{
-			if (s[i] == accept[j])
-				break;
-			if (s[i] != accept[j] && j == k - 1)
+			if (*(s + i) == *(accept + j))
 			{
-				l = 1;
-				m = i;
+				bool = 0;
+				break;
 			}
 		}
-		if (l > 0)
+		if (bool == 1)
 			break;
 	}
-	return (m);
+	return (i);
 }
 
 
@@ -64,24 +61,16 @@ int _strspn(char *s, char *accept)
 
 char *_strdup(const char *str)
 {
-	unsigned int i = 0, j;
-	char *a;
+	char *new;
+	size_t len;
 
-	if (str == NULL)
+	len = _strlen(str);
+	new = malloc(sizeof(char) * (len + 1));
+	if (new == NULL)
 		return (NULL);
-
-	for (; str[i] != '\0'; i++)
-		;
-	i++;
-	a = (char *)malloc(sizeof(char) * i);
-
-	if (a == NULL)
-		return (NULL);
-	for (j = 0; j < i; j++)
-	{
-		a[j] = str[j];
-	}
-	return (a);
+	_memcpy(new, str, len + 1);
+	
+	return (new);
 }
 
 

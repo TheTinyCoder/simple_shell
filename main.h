@@ -127,7 +127,7 @@ char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, char *src);
 char *_strchr(char *s, char c);
 int _strcmp(char *s1, char *s2);
-int _strlen(char *s);
+int _strlen(const char *s);
 int _strspn(char *s, char *accept);
 char *_strdup(const char *s);
 void rev_string(char *s);

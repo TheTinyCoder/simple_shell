@@ -14,19 +14,15 @@ char *_strcat(char *dest, const char *src)
 {
 	int i, j;
 
-	i = 0;
-	while (i >= 0)
-	{
-		if (dest[i] == '\0')
-			break;
-		i++;
-	}
+	for (i = 0; dest[i] != '\0'; i++)
+		;
 
 	for (j = 0; src[j] != '\0'; j++)
 	{
 		dest[i] = src[j];
 		i++;
 	}
+	dest[i] = '\0';
 
 	return (dest);
 }
@@ -43,15 +39,11 @@ char *_strcat(char *dest, const char *src)
 
 char *_strcpy(char *dest, char *src)
 {
-	int x = 0;
+	size_t a;
 
-	while (x >= 0)
-	{
-		dest[x] = src[x];
-		if (src[x] == '\0')
-			break;
-		x++;
-	}
+	for (a = 0; src[a] != '\0'; a++)
+		dest[a] = src[a];
+	dest[a] = '\0';
 
 	return (dest);
 }
@@ -68,23 +60,16 @@ char *_strcpy(char *dest, char *src)
 
 char *_strchr(char *s, char c)
 {
-	unsigned int i = 0, j = 0;
+	unsigned int i = 0;
 
-	for (;; i++)
+	for (; *(s + i) != '\0'; i++)
 	{
-		if (s[i] == c)
-		{
-			j = i;
-			break;
-		}
-		if (s[i] == '\0')
-		{
-			break;
-		}
+		if (*(s + i) == c)
+			return (s + i);
 	}
-	if (j == 0)
-		return (NULL);
-	return ((s + j));
+	if (*(s + i) == c)
+		return (s + i);
+	return ('\0');
 }
 
 
