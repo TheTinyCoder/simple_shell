@@ -1,9 +1,4 @@
 0x16. C - Simple Shell
-
-You have a captain's log due before 2023-08-27 (in 2 days)! Log it now!
-0x16. C - Simple Shell
-CGroup projectSyscall
-
     By: Julien Barbier
     Weight: 10
     Project to be done in teams of 2 people (your team: Yvonne C.W., Benjamin Opiyo)
