@@ -31,14 +31,14 @@ int _strlen(const char *s)
 
 int _strspn(char *s, char *accept)
 {
-	int i, j, bool;
+	int x, y, bool;
 
-	for (i = 0; *(s + i) != '\0'; i++)
+	for (x = 0; s[x] != '\0'; x++)
 	{
 		bool = 1;
-		for (j = 0; *(accept + j) != '\0'; j++)
+		for (y = 0; accept[y] != '\0'; y++)
 		{
-			if (*(s + i) == *(accept + j))
+			if (s[x] == accept[y])
 			{
 				bool = 0;
 				break;
@@ -47,7 +47,7 @@ int _strspn(char *s, char *accept)
 		if (bool == 1)
 			break;
 	}
-	return (i);
+	return (x);
 }
 
 
@@ -61,16 +61,16 @@ int _strspn(char *s, char *accept)
 
 char *_strdup(const char *str)
 {
-	char *new;
-	size_t len;
+	char *new_str;
+	size_t length;
 
-	len = _strlen(str);
-	new = malloc(sizeof(char) * (len + 1));
-	if (new == NULL)
+	length = _strlen(str);
+	new_str = malloc(sizeof(char) * (length + 1));
+	if (new_str == NULL)
 		return (NULL);
-	_memcpy(new, str, len + 1);
+	_memcpy(new_str, str, length + 1);
 
-	return (new);
+	return (new_str);
 }
 
 
@@ -84,7 +84,7 @@ char *_strdup(const char *str)
 
 void rev_string(char *s)
 {
-	int count = 0, i, j;
+	int count = 0, x, y;
 	char *str, temp;
 
 	while (count >= 0)
@@ -95,13 +95,13 @@ void rev_string(char *s)
 	}
 	str = s;
 
-	for (i = 0; i < (count - 1); i++)
+	for (x = 0; x < (count - 1); x++)
 	{
-		for (j = i + 1; j > 0; j--)
+		for (y = x + 1; y > 0; y--)
 		{
-			temp = *(str + j);
-			*(str + j) = *(str + (j - 1));
-			*(str + (j - 1)) = temp;
+			temp = str[y];
+			str[y] = str[y - 1];
+			str[y - 1] = temp;
 		}
 	}
 }

@@ -12,17 +12,14 @@
 
 char *_strcat(char *dest, const char *src)
 {
-	int i, j;
+	int x, y;
 
-	for (i = 0; dest[i] != '\0'; i++)
+	for (x = 0; dest[x] != '\0'; x++)
 		;
 
-	for (j = 0; src[j] != '\0'; j++)
-	{
-		dest[i] = src[j];
-		i++;
-	}
-	dest[i] = '\0';
+	for (y = 0; src[y] != '\0'; y++)
+		dest[x] = src[y], x++;
+	dest[x] = '\0';
 
 	return (dest);
 }
@@ -39,11 +36,11 @@ char *_strcat(char *dest, const char *src)
 
 char *_strcpy(char *dest, char *src)
 {
-	size_t a;
+	size_t x;
 
-	for (a = 0; src[a] != '\0'; a++)
-		dest[a] = src[a];
-	dest[a] = '\0';
+	for (x = 0; src[x] != '\0'; x++)
+		dest[x] = src[x];
+	dest[x] = '\0';
 
 	return (dest);
 }
@@ -60,16 +57,16 @@ char *_strcpy(char *dest, char *src)
 
 char *_strchr(char *s, char c)
 {
-	unsigned int i = 0;
+	unsigned int x = 0;
 
-	for (; *(s + i) != '\0'; i++)
+	for (; s[x] != '\0'; x++)
 	{
-		if (*(s + i) == c)
-			return (s + i);
+		if (s[x] == c)
+			return (s + x);
 	}
-	if (*(s + i) == c)
-		return (s + i);
-	return ('\0');
+	if (s[x] == c)
+		return (s + x);
+	return (NULL);
 }
 
 
@@ -84,14 +81,14 @@ char *_strchr(char *s, char c)
 
 int _strcmp(char *s1, char *s2)
 {
-	int i = 0;
+	int x = 0;
 
-	for (; s1[i] == s2[i] && s1[i]; i++)
+	for (; s1[x] == s2[x] && s1[x]; x++)
 		;
 
-	if (s1[i] > s2[i])
+	if (s1[x] > s2[x])
 		return (1);
-	if (s1[i] < s2[i])
+	if (s1[x] < s2[x])
 		return (-1);
 	return (0);
 }
