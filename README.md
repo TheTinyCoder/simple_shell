@@ -1,4 +1,4 @@
-# Simple Shell project 0x16.c - Simple Shell -
+# Simple Shell (project 0x16)
 
 This is a simple UNIX command interpreter based on bash and Sh.
 
