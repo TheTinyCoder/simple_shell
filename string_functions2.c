@@ -51,7 +51,7 @@ char *_itoa(int n)
  * Return: 1 if all are digits, 0 otherwise
  */
 
-int _isdigit(char *s)
+int _isdigit(const char *s)
 {
 	int i = 0;
 
@@ -73,7 +73,7 @@ int _isdigit(char *s)
  * Return: 1 if are equals, 0 if not.
  */
 
-int strcmp_to_delim(char *str, char *delim)
+int strcmp_to_delim(char str[], const char *delim)
 {
 	int i, j, k;
 

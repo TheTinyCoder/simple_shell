@@ -45,10 +45,9 @@ char *env_error(data_t *data)
 /**
  * path_error - function entry-point
  *
- * Description: error message for path and failure denied permission.
+ * Description: error message for path and permission denied
  * @data: shell data structure
- *
- * Return: The error string.
+ * Return: error string
  */
 
 char *path_error(data_t *data)

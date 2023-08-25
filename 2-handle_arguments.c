@@ -54,17 +54,18 @@ int first_char_index(char *s, int *idx)
  * @data: shell data structure
  * @s: string
  * @idx: index of the error
- * @boolean: control msg error
+ * @bool: control msg error
  * Return: void
  */
-void print_syntax_error(data_t *data, char *s, int idx, int boolean)
+
+void print_syntax_error(data_t *data, char *s, int idx, int bool)
 {
 	char *msg, *msg2, *msg3, *error, *counter;
 	int len;
 
 	if (s[idx] == ';')
 	{
-		if (boolean == 0)
+		if (bool == 0)
 			msg = (s[idx + 1] == ';' ? ";;" : ";");
 		else
 			msg = (s[idx - 1] == ';' ? ";;" : ";");

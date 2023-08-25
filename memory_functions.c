@@ -11,7 +11,7 @@
  * Return: void
  */
 
-void _memcpy(void *dest, void *src, unsigned int size)
+void _memcpy(void *dest, const void *src, unsigned int size)
 {
 	char *char_src = (char *)src, *char_dest = (char *)dest;
 	unsigned int i = 0;
@@ -64,7 +64,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 /**
  * _reallocdp - function entry-point
  *
- * Description: reallocates a memory (of a double pointer)
+ * Description: reallocates memory (of a double pointer)
  * @old: double pointer to the memory previously allocated
  * @old_size: previous allocation
  * @new_size: new allocation

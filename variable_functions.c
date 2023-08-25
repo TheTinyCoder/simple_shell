@@ -130,6 +130,7 @@ char *replace(var_list **head, char *s, char *new, int len)
  * @data: shell data structure
  * Return: replaced string
  */
+
 char *replace_var(char *s, data_t *data)
 {
 	var_listPtr head, idx;

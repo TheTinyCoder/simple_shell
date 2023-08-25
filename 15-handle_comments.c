@@ -8,6 +8,7 @@
  * @s: string
  * Return: string with no comments
  */
+
 char *handle_comment(char *s)
 {
 	int i, j;

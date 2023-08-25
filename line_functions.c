@@ -9,6 +9,7 @@
  * @line_string: command line string
  * Return: head of linked list
  */
+
 line_list *add_line_nodeend(line_list **head, char *line_string)
 {
 	line_listPtr new, temp;
@@ -35,6 +36,7 @@ line_list *add_line_nodeend(line_list **head, char *line_string)
 	return (*head);
 }
 
+
 /**
  * free_line_list - function entry-point
  *
@@ -42,6 +44,7 @@ line_list *add_line_nodeend(line_list **head, char *line_string)
  * @head: double pointer to head of the linked list.
  * Return: void
  */
+
 void free_line_list(line_list **head)
 {
 	line_listPtr temp1, temp2;

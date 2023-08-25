@@ -123,21 +123,21 @@ void free_data(data_t *data);
 
 
 /*  string functions  */
-char *_strcat(char *dest, char *src);
+char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, char *src);
 char *_strchr(char *s, char c);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 int _strspn(char *s, char *accept);
-char *_strdup(char *s);
+char *_strdup(const char *s);
 void rev_string(char *s);
 char *_itoa(int n);
-int _isdigit(char *s);
-int strcmp_to_delim(char *str, char *delim);
+int _isdigit(const char *s);
+int strcmp_to_delim(char str[], const char *delim);
 
 
 /* memory functions */
-void _memcpy(void *dest, void *src, unsigned int size);
+void _memcpy(void *dest, const void *src, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char **_reallocdp(char **old, unsigned int old_size, unsigned int new_size);
 
@@ -196,7 +196,7 @@ int execute(data_t *data);
 /* handle arguments */
 int char_repetitions(char *s, int idx);
 int first_char_index(char *s, int *idx);
-void print_syntax_error(data_t *data, char *s, int idx, int boolean);
+void print_syntax_error(data_t *data, char *s, int idx, int bool);
 int check_syntax(data_t *data, char *s);
 
 
@@ -222,7 +222,7 @@ char *_readline(int *i);
 
 
 /* handle lib functions */
-char *_strtok(char *str, char *delim);
+char *_strtok(char str[], char *delim);
 int _getlen(int n);
 int _atoi(char *s);
 
@@ -250,7 +250,7 @@ int execute_line(data_t *data);
 
 
 /* switches non logical '|' and '&' for non-printed characters */
-char *swap_non_ops(char *s, int type);
+char *swap_non_ops(char *s, int bool);
 
 
 /* handle variable replacements */

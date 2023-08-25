@@ -5,15 +5,15 @@
  *
  * Description: swaps non-logical | and & for non-printed chars
  * @s: string
- * @type: integer for swap type (0 or otherwise)
+ * @bool: integer for swap type (0 or otherwise)
  * Return: swapped string
  */
 
-char *swap_non_ops(char *s, int type)
+char *swap_non_ops(char *s, int bool)
 {
 	int i;
 
-	if (type == 0)
+	if (bool == 0)
 	{
 		for (i = 0; s[i]; i++)
 		{

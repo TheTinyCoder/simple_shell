@@ -10,7 +10,7 @@
  * Return: pointer to concatenated string
  */
 
-char *_strcat(char *dest, char *src)
+char *_strcat(char *dest, const char *src)
 {
 	int i, j;
 
@@ -99,9 +99,9 @@ char *_strchr(char *s, char c)
 
 int _strcmp(char *s1, char *s2)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; s1[i] == s2[i] && s1[i]; i++)
+	for (; s1[i] == s2[i] && s1[i]; i++)
 		;
 
 	if (s1[i] > s2[i])
@@ -110,6 +110,3 @@ int _strcmp(char *s1, char *s2)
 		return (-1);
 	return (0);
 }
-
-
-

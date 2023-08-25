@@ -10,7 +10,7 @@
  * Return: split string.
  */
 
-char *_strtok(char *str, char *delim)
+char *_strtok(char str[], char *delim)
 {
 	char *start;
 	unsigned int i, bool;

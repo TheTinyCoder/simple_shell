@@ -14,9 +14,7 @@ int _strlen(char *s)
 	int x = 0;
 
 	while (*(s + x) != '\0')
-	{
 		x++;
-	}
 
 	return (x);
 }
@@ -64,7 +62,7 @@ int _strspn(char *s, char *accept)
  * Return: NULL if size is 0, pointer to array otherwise
  */
 
-char *_strdup(char *str)
+char *_strdup(const char *str)
 {
 	unsigned int i = 0, j;
 	char *a;
@@ -101,9 +99,7 @@ void rev_string(char *s)
 	char temp;
 
 	while (*(s + x) != '\0')
-	{
 		x++;
-	}
 
 	for (x--; x > y; x--)
 	{

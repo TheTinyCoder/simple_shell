@@ -36,6 +36,7 @@ sep_list *add_sep_nodeend(sep_list **head, char separator)
 	return (*head);
 }
 
+
 /**
  * free_sep_list - function entry-point
  *

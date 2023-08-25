@@ -50,7 +50,7 @@ char *cd_error(data_t *data)
  * Description: concatenates message for cd_error
  * @data: shell data structure
  * @msg: message to print
- * @error: output message
+ * @error: error message
  * @lines: counter lines
  * Return: error message
  */
@@ -92,6 +92,7 @@ char *strcat_cd_error(data_t *data, char *msg, char *error, char *lines)
  * @data: shell data structure
  * Return: error message
  */
+
 char *error_404(data_t *data)
 {
 	int len;
@@ -123,10 +124,11 @@ char *error_404(data_t *data)
 /**
  * exit_error - function entry-point
  *
- * Description: generic error message for exit in get_exit
+ * Description: generic error message for exit
  * @data: shell data structure
  * Return: error message
  */
+
 char *exit_error(data_t *data)
 {
 	int len;
