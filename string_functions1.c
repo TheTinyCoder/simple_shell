@@ -69,7 +69,7 @@ char *_strdup(const char *str)
 	if (new == NULL)
 		return (NULL);
 	_memcpy(new, str, len + 1);
-	
+
 	return (new);
 }
 
@@ -84,17 +84,24 @@ char *_strdup(const char *str)
 
 void rev_string(char *s)
 {
-	int x = 0, y = 0;
-	char temp;
+	int count = 0, i, j;
+	char *str, temp;
 
-	while (*(s + x) != '\0')
-		x++;
-
-	for (x--; x > y; x--)
+	while (count >= 0)
 	{
-		temp = *(s + y);
-		*(s + y) = *(s + x);
-		*(s + x) = temp;
-		y++;
+		if (s[count] == '\0')
+			break;
+		count++;
+	}
+	str = s;
+
+	for (i = 0; i < (count - 1); i++)
+	{
+		for (j = i + 1; j > 0; j--)
+		{
+			temp = *(str + j);
+			*(str + j) = *(str + (j - 1));
+			*(str + (j - 1)) = temp;
+		}
 	}
 }
