@@ -260,4 +260,5 @@ void check_for_env(var_list **head, char *s, data_t *data);
 
 /* handle comments */
 char *handle_comment(char *s);
+
 #endif
